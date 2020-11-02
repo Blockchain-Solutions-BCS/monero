@@ -1,6 +1,7 @@
 # Monero
 
-Copyright (c) 2014-2019 The Monero Project.   
+Copyright (c) 2014-2019 The Monero Project
+Copyright (c) 2020, CryptoFugu.   
 Portions Copyright (c) 2012-2013 The Cryptonote developers.
 
 ## Table of Contents

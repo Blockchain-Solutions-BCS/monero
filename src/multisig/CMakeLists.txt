@@ -1,4 +1,5 @@
 # Copyright (c) 2017-2019, The Monero Project
+# Copyright (c) 2020, CryptoFugu
 #
 # All rights reserved.
 #

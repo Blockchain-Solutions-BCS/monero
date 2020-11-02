@@ -1,4 +1,5 @@
 # Copyright (c) 2014-2019, The Monero Project
+# Copyright (c) 2020, CryptoFugu
 #
 # All rights reserved.
 #
@@ -65,7 +66,6 @@ target_link_libraries(wallet
     common
     cryptonote_core
     mnemonics
-    device_trezor
     net
     ${LMDB_LIBRARY}
     ${Boost_CHRONO_LIBRARY}
@@ -111,7 +111,7 @@ if(NOT IOS)
       ${EXTRA_LIBRARIES})
   set_property(TARGET wallet_rpc_server
     PROPERTY
-      OUTPUT_NAME "monero-wallet-rpc")
+      OUTPUT_NAME "monerobs-wallet-rpc")
   install(TARGETS wallet_rpc_server DESTINATION bin)
 endif()
 
@@ -134,8 +134,7 @@ if (BUILD_GUI_DEPS)
             ringct_basic
             checkpoints
             version
-            net
-            device_trezor)
+            net)
 
     foreach(lib ${libs_to_merge})
         list(APPEND objlibs $<TARGET_OBJECTS:obj_${lib}>) # matches naming convention in src/CMakeLists.txt

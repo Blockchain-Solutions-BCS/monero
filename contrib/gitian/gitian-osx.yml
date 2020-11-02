@@ -1,5 +1,5 @@
 ---
-name: "monero-osx-0.15"
+name: "monerobs-osx-0.16f"
 enable_cache: true
 suites:
 - "bionic"
@@ -24,10 +24,10 @@ packages:
 - "python-dev"
 - "python-setuptools"
 remotes:
-- "url": "https://github.com/monero-project/monero.git"
+- "url": "https://github.com/cryptofugu/monero.git"
   "dir": "monero"
 files:
-- "MacOSX10.11.sdk.tar.gz"
+- "MacOSX10.11.sdk.tar.xz"
 script: |
   WRAP_DIR=$HOME/wrapped
   HOSTS="x86_64-apple-darwin11"
@@ -88,7 +88,7 @@ script: |
   BASEPREFIX=`pwd`/contrib/depends
 
   mkdir -p ${BASEPREFIX}/SDKs
-  tar -C ${BASEPREFIX}/SDKs -xf ${BUILD_DIR}/MacOSX10.11.sdk.tar.gz
+  tar -C ${BASEPREFIX}/SDKs -xf ${BUILD_DIR}/MacOSX10.11.sdk.tar.xz
 
   # Build dependencies for each host
   export TAR_OPTIONS=--mtime=2000-01-01T12:00:00
@@ -113,7 +113,7 @@ script: |
     chmod 755 bin/*
     cp ../LICENSE bin
     chmod 644 bin/LICENSE
-    DISTNAME=monero-${i}-${version}
+    DISTNAME=monerobs-${i}-${version}
     mv bin ${DISTNAME}
     find ${DISTNAME}/ | sort | tar --no-recursion --owner=0 --group=0 -c -T - | bzip2 -9 > ${OUTDIR}/${DISTNAME}.tar.bz2
     cd ..

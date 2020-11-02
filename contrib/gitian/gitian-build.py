@@ -34,7 +34,7 @@ def setup():
     if not os.path.isdir('monero'):
         subprocess.check_call(['git', 'clone', args.url, 'monero'])
     os.chdir('..')
-    make_image_prog = ['bin/make-base-vm', '--suite', 'bionic', '--arch', 'amd64']
+    make_image_prog = ['/home/user/gitian-builder/bin/make-base-vm', '--suite', 'bionic', '--arch', 'amd64']
     if args.docker:
         try:
             subprocess.check_output(['docker', '--help'])
@@ -70,7 +70,7 @@ def rebuild():
         infile = 'inputs/monero/contrib/gitian/gitian-' + tag_name + '.yml'
         subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'monero='+args.commit, '--url', 'monero='+args.url, infile])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-'+tag_name, '--destination', '../sigs/', infile])
-        subprocess.check_call('mv build/out/monero-*.' + suffix + ' ../out/'+args.version, shell=True)
+        subprocess.check_call('mv build/out/monerobs-*.' + suffix + ' ../out/'+args.version, shell=True)
         print('Moving var/install.log to var/install-' + tag_name + '.log')
         subprocess.check_call('mv var/install.log var/install-' + tag_name + '.log', shell=True)
         print('Moving var/build.log to var/build-' + tag_name + '.log')
@@ -118,7 +118,7 @@ def main():
     parser = argparse.ArgumentParser(description='Script for running full Gitian builds.', usage='%(prog)s [options] signer version')
     parser.add_argument('-c', '--commit', action='store_true', dest='commit', help='Indicate that the version argument is for a commit or branch')
     parser.add_argument('-p', '--pull', action='store_true', dest='pull', help='Indicate that the version argument is the number of a github repository pull request')
-    parser.add_argument('-u', '--url', dest='url', default='https://github.com/monero-project/monero', help='Specify the URL of the repository. Default is %(default)s')
+    parser.add_argument('-u', '--url', dest='url', default='https://github.com/cryptofugu/monero', help='Specify the URL of the repository. Default is %(default)s')
     parser.add_argument('-v', '--verify', action='store_true', dest='verify', help='Verify the Gitian build')
     parser.add_argument('-b', '--build', action='store_true', dest='build', help='Do a Gitian build')
     parser.add_argument('-B', '--buildsign', action='store_true', dest='buildsign', help='Build both signed and unsigned binaries')
@@ -160,13 +160,13 @@ def main():
     elif not args.kvm:
         os.environ['USE_LXC'] = '1'
         if not 'GITIAN_HOST_IP' in os.environ.keys():
-            os.environ['GITIAN_HOST_IP'] = '10.0.2.2'
+            os.environ['GITIAN_HOST_IP'] = '10.0.3.2'
         if not 'LXC_GUEST_IP' in os.environ.keys():
-            os.environ['LXC_GUEST_IP'] = '10.0.2.5'
+            os.environ['LXC_GUEST_IP'] = '10.0.3.5'
 
     # Disable MacOS build if no SDK found
     args.nomac = False
-    if 'm' in args.os and not os.path.isfile('builder/inputs/MacOSX10.11.sdk.tar.gz'):
+    if 'm' in args.os and not os.path.isfile('builder/inputs/MacOSX10.11.sdk.tar.xz'):
         if args.build:
             print('Cannot build for MacOS, SDK does not exist. Will build for other OSes')
             args.nomac = True

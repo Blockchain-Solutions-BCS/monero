@@ -1,4 +1,5 @@
 # Copyright (c) 2014-2019, The Monero Project
+# Copyright (c) 2020, CryptoFugu
 #
 # All rights reserved.
 #
@@ -203,7 +204,6 @@ if(NOT MANUAL_SUBMODULES)
     check_submodule(external/miniupnp)
     check_submodule(external/unbound)
     check_submodule(external/rapidjson)
-    check_submodule(external/trezor-common)
     check_submodule(external/randomx)
   endif()
 endif()

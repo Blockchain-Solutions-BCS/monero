@@ -1,4 +1,5 @@
 # Copyright (c) 2014-2019, The Monero Project
+# Copyright (c) 2020, CryptoFugu
 #
 # All rights reserved.
 #
@@ -142,4 +143,3 @@ if(PER_BLOCK_CHECKPOINT)
 endif()
 
 add_subdirectory(device)
-add_subdirectory(device_trezor)

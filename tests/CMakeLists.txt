@@ -1,4 +1,5 @@
 # Copyright (c) 2014-2019, The Monero Project
+# Copyright (c) 2020, CryptoFugu
 # 
 # All rights reserved.
 # 
@@ -93,9 +94,6 @@ if (BUILD_GUI_DEPS)
   add_subdirectory(libwallet_api_tests)
 endif()
 
-if (TREZOR_DEBUG)
-  add_subdirectory(trezor)
-endif()
 
 # add_subdirectory(daemon_tests)
 

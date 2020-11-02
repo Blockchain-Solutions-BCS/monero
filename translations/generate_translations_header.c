@@ -1,5 +1,6 @@
 // Copyright (c) 2013, Sergey Lyubka
 // Copyright (c) 2017-2019, The Monero Project
+// Copyright (c) 2020, CryptoFugu
 // All rights reserved.
 // Released under the MIT license.
 
