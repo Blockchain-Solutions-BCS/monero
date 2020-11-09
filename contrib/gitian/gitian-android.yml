@@ -1,5 +1,5 @@
 ---
-name: "monero-android-0.15"
+name: "monero-android-0.16"
 enable_cache: true
 suites:
 - "bionic"
@@ -32,7 +32,7 @@ packages:
 - "python3-zmq"
 - "unzip"
 remotes:
-- "url": "https://github.com/monero-project/monero.git"
+- "url": "https://github.com/cryptofugu/monero.git"
   "dir": "monero"
 files: []
 script: |

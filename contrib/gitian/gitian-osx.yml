@@ -1,5 +1,5 @@
 ---
-name: "monerobs-osx-0.16f"
+name: "monero-osx-0.16"
 enable_cache: true
 suites:
 - "bionic"
@@ -113,7 +113,7 @@ script: |
     chmod 755 bin/*
     cp ../LICENSE bin
     chmod 644 bin/LICENSE
-    DISTNAME=monerobs-${i}-${version}
+    DISTNAME=monero-${i}-${version}
     mv bin ${DISTNAME}
     find ${DISTNAME}/ | sort | tar --no-recursion --owner=0 --group=0 -c -T - | bzip2 -9 > ${OUTDIR}/${DISTNAME}.tar.bz2
     cd ..
